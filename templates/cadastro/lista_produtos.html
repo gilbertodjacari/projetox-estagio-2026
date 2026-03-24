@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Produtos{% endblock %}
+
+{% block content %}
+    <h2>Lista de Produtos</h2>
+    <a href="{% url 'cadastrar_produto' %}">Adicionar Novo Produto</a>
+    <ul>
+        {% for produto in produtos %}
+            <li>{{ produto.nome }} - R$ {{ produto.preco }}</li>
+        {% empty %}
+            <li>Nenhum produto encontrado.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
